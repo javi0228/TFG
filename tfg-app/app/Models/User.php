@@ -13,39 +13,61 @@ class User extends Authenticatable
     use HasApiTokens, HasFactory, Notifiable;
 
     /**
-     * The attributes that are mass assignable.
+     * Atributos que se pueden serializar (Rellenables).
      *
      * @var array<int, string>
      */
     protected $fillable = [
+        'doctor_id',
         'name',
+        'surname',
+        'birthday',
         'dni',
+        'image',
         'email',
         'password',
     ];
 
     /**
-     * The attributes that should be hidden for serialization.
+     * Foto por defecto del usuario
+     * @var string
+     */
+    public $default_img = "default_user.png";
+
+    /**
+     * Attributos ocultos o que no pueden ser serializados.
      *
      * @var array<int, string>
      */
     protected $hidden = [
         'password',
-        'remember_token',
     ];
 
     /**
-     * The attributes that should be cast.
+     * Atributos que deben ser casteados.
      *
      * @var array<string, string>
      */
     protected $casts = [
-        'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
 
     public function medicalHistory()
     {
-        return $this->hasMany(MedicalHistory::class);
+        return $this->hasOne(MedicalHistory::class);
+    }
+
+    public function doctor()
+    {
+        return $this->belongsTo(Doctor::class);
+    }
+
+
+    /**
+     * Devuelve todas las citas del paciente
+     */
+    public function appointments()
+    {
+        return $this->hasMany(Appointment::class);
     }
 }

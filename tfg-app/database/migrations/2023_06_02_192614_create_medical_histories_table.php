@@ -4,8 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class extends Migration {
     /**
      * Run the migrations.
      */
@@ -17,10 +16,10 @@ return new class extends Migration
             $table->string('emergency_phone');
             $table->string('allergies');
             $table->string('other_diseases');
-            $table->boolean('diabetes');
-            $table->boolean('cancer');
-            $table->boolean('overweight');
-            $table->boolean('epilepsy');
+            $table->boolean('diabetes')->default(false)->nullable();
+            $table->boolean('cancer')->default(false)->nullable();
+            $table->boolean('overweight')->default(false)->nullable();
+            $table->boolean('epilepsy')->default(false)->nullable();
             $table->timestamps();
 
         });

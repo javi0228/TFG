@@ -10,6 +10,7 @@ class MedicalHistory extends Model
     use HasFactory;
 
     protected $fillable=[
+        'user_id',
         'emergency_phone',
         'allergies',
         'other_diseases',

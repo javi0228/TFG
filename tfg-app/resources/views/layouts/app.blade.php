@@ -12,9 +12,12 @@
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
-
+        
+        {{-- Wireui scripts --}}
+        <wireui:scripts />
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
+        @livewireStyles
     </head>
     <body class="font-sans antialiased">
         <div class="main-content min-h-screen bg-gray-100 dark:bg-gray-900">
@@ -34,5 +37,7 @@
                 {{ $slot }}
             </main>
         </div>
+        @livewireScripts
     </body>
+    @stack('js')
 </html>

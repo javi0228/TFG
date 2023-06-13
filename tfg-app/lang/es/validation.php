@@ -130,7 +130,8 @@ return [
     */
 
     'custom' => [
-        'attribute-name' => [
+        'date' => [
+            'today' => 'hoy',
             'rule-name' => 'custom-message',
         ],
     ],
@@ -146,6 +147,16 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        'date'=>'Fecha',
+        'cause'=>'Motivo',
+        'diagnosis'=>'Diagnóstico',
+        'office'=>'Consulta',
+        'other_diseases'=>'otras enfermedades',
+        'allergies'=>'alergias',
+        'emergency_phone'=>'teléfono de emergencias',
+        'birthday'=>'Fecha de nacimiento',
+        'today'=>'hoy',
+    ],
 
 ];
